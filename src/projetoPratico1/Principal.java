@@ -26,10 +26,11 @@ public class Principal {
 		}
 	}
 	
-	public static void preencheChute(int [] v, Scanner sc) {
-		for(int i = 0; i<v.length; i++) {
-			System.out.println("Tentativa " +(i+1)+":");
-			v[i] = sc.nextInt();
+	public static void preencheChute(int[] v, Scanner sc) {
+		System.out.println("Digite seu chute: ");
+		String[] chuteStr = sc.nextLine().split(" ");
+		for (int i = 0; i < v.length; i++) {
+			v[i] = Integer.parseInt(chuteStr[i]);
 		}
 	}
 
