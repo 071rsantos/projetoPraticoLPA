@@ -53,7 +53,8 @@ public class Principal {
 		for(int i = 0; i < v.length; i++) {
 			if(v2[i] == c[i]) {
 				contCorreto++;
-				v2[i]=0;
+				v2[i]=-1;
+				c[i]=0;
 			}
 		}	
 		for(int i = 0; i<v2.length; i++) {	
