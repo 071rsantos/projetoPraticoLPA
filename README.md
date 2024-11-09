@@ -40,4 +40,4 @@ Dígitos corretos: 2
 Dígitos deslocados: 1
 E assim sucessivamente.
 O jogo termina quando o jogador desafiado acerta a senha, sendo portanto vencedor, ou quando
-terminam as dez tentativas, sendo vencedor o computador.g
+terminam as dez tentativas, sendo vencedor o computador.
