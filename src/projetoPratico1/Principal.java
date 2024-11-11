@@ -66,7 +66,8 @@ public class Principal {
 				v2[i]=-1;
 				c2[i]=0;
 			}
-		}	
+		}
+		if(contCorreto !=4){
 		for(int i = 0; i<v2.length; i++) {	
 			if(verificadorDeslo(c2[i], v2)) {
 				contDeslocado++;
@@ -74,6 +75,7 @@ public class Principal {
 		}
 		System.out.println("Digitos corretos: "+contCorreto);
 		System.out.println("Digitos deslocados: "+contDeslocado);
+		}
 		System.out.println();
 	}
 	
