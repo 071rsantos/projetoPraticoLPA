@@ -7,27 +7,35 @@ public class Principal {
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		int cont = 0;
+		int cont = 1;
 		int [] senha = new int[4];
 		int [] chute = new int[4];
 		
 		geraSenha(senha);
-		
+		System.out.println("Bem vindo ao jogo da senha!!");
+		System.out.println();
+		System.out.println("Tente acertar a senha de 4 digitos, com numeros de 1 a 6.");
+		System.out.println();
+
+
 		do {
+			System.out.printf("Tentativa %d \n\n",cont);
 			preencheChute(chute, sc);
 			verificador(senha, chute);
 			cont++;
-		} while(!verificadorIgualdade(senha, chute) && cont<=3);
+		} while(!verificadorIgualdade(senha, chute) && cont<=10);
 		
 		if(verificadorIgualdade(senha, chute)) {
-			System.out.println("SENHA CORRETA");
+			System.out.println();
+			System.out.println("PARABENS!! SENHA CORRETA");
 		} else {
+			System.out.println();
 			System.out.println("Tentativas finalizadas");
 		}
 	}
 	
 	public static void preencheChute(int[] v, Scanner sc) {
-		System.out.println("Digite seu chute: ");
+		System.out.print("Digite seu chute: ");
 		String[] chuteStr = sc.nextLine().split(" ");
 		for (int i = 0; i < v.length; i++) {
 			v[i] = Integer.parseInt(chuteStr[i]);
@@ -38,7 +46,7 @@ public class Principal {
 		Random r = new Random();
 		for(int i = 0; i<v.length; i++) {
 			v[i] = r.nextInt(6)+1;
-			System.out.print(v[i] + " ");
+			//System.out.print(v[i] + " ");
 		}
 		System.out.println();
 		return v;
@@ -47,22 +55,28 @@ public class Principal {
 	public static void verificador(int[] v, int[] c) {
 		int contCorreto = 0, contDeslocado = 0;
 		int[] v2 = new int[v.length];
+		int[] c2 = new int[c.length];
 		for(int u = 0; u<v.length;u++) {
 			v2[u] = v[u];
+			c2[u] = c[u];
 		}
 		for(int i = 0; i < v.length; i++) {
-			if(v2[i] == c[i]) {
+			if(v2[i] == c2[i]) {
 				contCorreto++;
-				v2[i]=0;
+				v2[i]=-1;
+				c2[i]=0;
 			}
-		}	
+		}
+		if(contCorreto !=4){
 		for(int i = 0; i<v2.length; i++) {	
-			if(verificadorDeslo(c[i], v2)) {
+			if(verificadorDeslo(c2[i], v2)) {
 				contDeslocado++;
 			}
 		}
 		System.out.println("Digitos corretos: "+contCorreto);
 		System.out.println("Digitos deslocados: "+contDeslocado);
+		}
+		System.out.println();
 	}
 	
 	public static boolean verificadorDeslo(int n, int[] v) {
